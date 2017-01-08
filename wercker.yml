@@ -4,5 +4,4 @@ build:
     - arjen/hugo-build:
         version: "0.17"
         theme: ghostwriter
-        config: config.toml
         flags: --buildDrafts=true
