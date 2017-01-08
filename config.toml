@@ -1,0 +1,45 @@
+baseurl = "https://meneal.github.io/"
+title = "Bit Grabber"
+theme = "ghostwriter"
+languageCode = "en-us"
+copyright = "Matthew Neal"
+disqusShortname = "meneal-blog"
+
+[Author]
+    name = "Matthew Neal"
+
+[Taxonomies]
+    tag = "tags"
+
+[Params]
+    intro = true
+    headline = "Bit Grabber"
+    description = "A blog about open source and machine learning"
+    github = "https://github.com/meneal"
+    linkedin = "https://linkedin.com/in/matthew-neal-888585b/"
+    twitter = "https://twitter.com/meneal"
+    email = "meneal@gmail.com"
+    opengraph = true
+
+[Permalinks]
+    post = "/:year/:month/:day/:filename/"
+
+[[menu.main]]
+    name = "Blog"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "Projects"
+    url = "/project/"
+    weight = 2
+
+[[menu.main]]
+    name = "Contact"
+    url = "/page/contact/"
+    weight = 3
+
+[[menu.main]]
+    name = "About"
+    url = "/page/about/"
+    weight = 4
