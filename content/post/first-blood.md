@@ -19,4 +19,5 @@ I've recently finished a Masters in Computer Science and I would really like to 
 
 This isn't really my concern with this blog, so in some ways I'll be writing to myself. If there end up being followers, I hope that you will write in the comments to drive changes in my approach that can push me to support what a few others are interested in as well.
 
-Cheers, MN
+Cheers,
+MN
