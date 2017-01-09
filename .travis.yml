@@ -18,7 +18,7 @@ install:
   - go get -u -v github.com/spf13/hugo
   - cd $GOPATH/src/github.com/spf13/hugo && govendor sync && go install
 script:
-  - cd $HOME/gopath/src/github.com/YourBlogName/YourBlogName.github.io && hugo
+  - cd $HOME/gopath/src/github.com/meneal/meneal.github.io && hugo
 after_success:
   - cp .travis.yml public # all branches need this file
   - bash deploy.sh # run the deploy script
