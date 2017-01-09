@@ -3,22 +3,21 @@ go:
 - 1.6
 env:
   global:
-    - secure: "y5U3SMoK3WuZqtG0dhFyLolzu0kVeyn34cKzITlcHFLHxieJLzqiX/Bw1vm5sxYsSOwngt5X7HoHFiRoCokupvrFkiJQTzT4P+BQUnEFnlF4ZDkEn0ULcZ0w2j8CGB3CMfYH+hbqJFkeSyN1gdP96FjgclI8+o2PNPysmHyczdPjacgT6CRF+zact+xGeJgxuaOoBEUhheM+tcjqMQVg/R3NJWaDyvyN/R+PosMZOEyr5ATSP1O/u9ofgVqfw35wo3tZfjcqzrgnF9l5mNEDePeQKpDvhShiHv+hyJizbcRWfz6lDABv7r3/Abb1b/AaXPVVsvM8xu699vzjnOEn1PJXHkr5DQB8tcGXChHLHK/uGsn9riJWSWKYt6Ezb6mdYW09QGZlnchtHvE6Lk9xSzLoXKFCuaTuZ6N5V5KE/gS4YONU/Lp+43eeoFg79Ev9q0Iov+pwFh5bjA/dt5sp8WT90wCNqCSmbfHC/iU+gIM1DXqypZjqleNlNmZqR2UJPSo8ez6b5HivBC05LDrzfbfaKneaVTL9B9YW2zDg4xpWdQfvj2lYlY2aF4VeBFGVHq4dsJtae2TFm6is0F0RRPg0e8QqGsGGRtwURb/INaJjO7ozlIGDYLdonZxrZ/BKv9w5v5xiwlh0NXdvJfvxZ1Bx8+ITQ+lYkNwqX2gBxOc="
-    - GIT_DEPLOY_DIR=public # this is the default output dir of Hugo
-    - GIT_DEPLOY_BRANCH=master # this is the target branch, replace by gh-pages for Project Pages
-    - GIT_DEPLOY_USERNAME="meneal" # dummy name
-    - GIT_DEPLOY_EMAIL=meneal@gmail.com # replace by your email
+  - secure: ZoJVRqpp4EZ7IBUAfVnhXOMFGtYg84xpC/SZgKpkAdPkim6tWinTh9CunRPsG2iT/preeadTf2LPdxIIpzth57wAT9AUVVF0/HH7LzbHHwhGY8E0su+FYN38BkPOUpAeTqnH1bKEUlkfNXB6bUIvpSFg4988jLfpp4ZG6hs58mIg3cYezLb2A8U5OioFzwma45QMFyOt6TVuMm5TkFoMEZNKOzGpBwQpeUGSd3M9QobasEF1afMwwVnNF+XdtPBqGUdZeHJ1++gQtPB6ey2lpV74zl4TQqeSkreBfAf9HXn5i/7/8RL/HStM3ZYzTW5sqsBqqQiLnH1NKSC9zJKROs1NZg7QGIKiDVFAF4+c0cw6t6ATkZ28oiEtjfxagPGbGSE0H/92Z6gxe4CM5vePRhcifmq1lEXyROvy1TPH4axpTnLjSwDsWcUe0j9NAh+IIBsgGe5N8Qd7/GYFopSIYGycSphkbrs2pr82vvw821ltWi852tBNfbjn2Pc4EYuNbGiMdmlkADFSvsmPmAxFjFxXXaAtRmmzuCwmetu2dYJIvZjQoUASNXHCCuQSSROVk1QQc0AsYYbA0n3O2pNIqkElnd08l/gU+k/kGj2uP8sbDy7/48HgLmpJP8j2yrag7ZlWLVHcI9lX3l+lT97jaFttE6qdnsVCgERpeH/nzNE=
+  - GIT_DEPLOY_DIR=public
+  - GIT_DEPLOY_BRANCH=master
+  - GIT_DEPLOY_USERNAME="meneal"
+  - GIT_DEPLOY_EMAIL=meneal@gmail.com
 branches:
   only:
-    - sources # replace by master for Project Pages
-
+  - sources
 install:
-  - rm -rf public || exit 0 # cleanup previous run
-  - go get -u -v github.com/kardianos/govendor
-  - go get -u -v github.com/spf13/hugo
-  - cd $GOPATH/src/github.com/spf13/hugo && govendor sync && go install
+- rm -rf public || exit 0
+- go get -u -v github.com/kardianos/govendor
+- go get -u -v github.com/spf13/hugo
+- cd $GOPATH/src/github.com/spf13/hugo && govendor sync && go install
 script:
-  - cd $HOME/gopath/src/github.com/meneal/meneal.github.io && hugo
+- cd $HOME/gopath/src/github.com/meneal/meneal.github.io && hugo
 after_success:
-  - cp .travis.yml public # all branches need this file
-  - bash deploy.sh # run the deploy script
+- cp .travis.yml public
+- bash deploy.sh
