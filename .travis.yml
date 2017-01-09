@@ -1,0 +1,22 @@
+language: go
+go:
+- 1.6
+env:
+  global:
+  - GIT_DEPLOY_DIR=public
+  - GIT_DEPLOY_BRANCH=master
+  - GIT_DEPLOY_USERNAME="meneal"
+  - GIT_DEPLOY_EMAIL=meneal@gmail.com
+branches:
+  only:
+  - sources
+install:
+- rm -rf public || exit 0
+- go get -u -v github.com/kardianos/govendor
+- go get -u -v github.com/spf13/hugo
+- cd $GOPATH/src/github.com/spf13/hugo && govendor sync && go install
+script:
+- cd $HOME/gopath/src/github.com/meneal/meneal.github.io && hugo
+after_success:
+- cp .travis.yml public
+- bash deploy.sh
