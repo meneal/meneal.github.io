@@ -19,5 +19,5 @@ script:
   - cd $HOME/gopath/src/github.com/meneal/meneal.github.io && hugo
 after_success:
   - cp .travis.yml public
+  - echo "meneal.com" > public/CNAME
   - bash deploy.sh
-  - echo "meneal.com" > $HOME/gopath/src/github.com/meneal/meneal.github.io/CNAME
