@@ -11,12 +11,13 @@ branches:
   only:
   - sources
 install:
-- rm -rf public || exit 0
-- go get -u -v github.com/kardianos/govendor
-- go get -u -v github.com/spf13/hugo
-- cd $GOPATH/src/github.com/spf13/hugo && govendor sync && go install
+  - rm -rf public || exit 0
+  - go get -u -v github.com/kardianos/govendor
+  - go get -u -v github.com/spf13/hugo
+  - cd $GOPATH/src/github.com/spf13/hugo && govendor sync && go install
 script:
-- cd $HOME/gopath/src/github.com/meneal/meneal.github.io && hugo
+  - cd $HOME/gopath/src/github.com/meneal/meneal.github.io && hugo
 after_success:
-- cp .travis.yml public
-- bash deploy.sh
+  - cp .travis.yml public
+  - bash deploy.sh
+  - echo "meneal.com" > $HOME/gopath/src/github.com/meneal/meneal.github.io/CNAME
